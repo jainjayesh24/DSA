@@ -20,20 +20,22 @@ This section covers the implementation and operations on common data structures:
 - Singly Linked List
 - Doubly Linked List
 - Circular Linked List
-- Problems:
-  - Reverse a linked list
-  - Detect a cycle in a linked list
   
 ### Stack
 - Stack using arrays
 - Stack using linked list
-- Problems:
-  - Balanced Parentheses
-  - Next Greater Element
+
   
 ### Queue
 - Queue using arrays
 - Queue using linked list
 - Circular Queue
+
+### Trees
+- 
+- 
+-
+
+
 ---
 
