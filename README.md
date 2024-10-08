@@ -32,9 +32,9 @@ This section covers the implementation and operations on common data structures:
 - Circular Queue
 
 ### Trees
-- 
-- 
--
+- Binary Tree using Class
+- Binary Tree usign Structure 
+- Binary Search Tree implementation 
 
 
 ---
