@@ -121,7 +121,6 @@ void explainPQ(){
         pq.pop();
     }
 }
-
 void explainset() {
     // Unique elements (ascending order)
     //iterator support
@@ -145,16 +144,16 @@ void explainset() {
     }
 
 
-    // auto it1 = st.begin();
-    // it1++;
+    auto it1 = st.begin();
+    it1++;
 
-    // auto it2 = st.end();
-    // it2--;
+    auto it2 = st.end();
+    it2--;
 
-    // st.erase(it1,it2);
-    // for(auto i: st){
-    //     cout<<i<<" ";
-    // }
+    st.erase(it1,it2);
+    for(auto i: st){
+        cout<<i<<" ";
+    }
 
 
     //lowerbound
@@ -177,16 +176,127 @@ void explainset() {
     }else{
         cout<<*it2<<endl;
     }
+
+    //Unorder set -> all operations same as set elements are stored in sequnce which they are inserted
+    //Why? --> Better time complexity o(1)
+    // No lowebound and upperbound
+}
+void explainmultiset(){
+    multiset<int> ms;
+    ms.insert(4);
+    ms.insert(4);
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(90);
+    ms.insert(89);
+    for(auto i : ms){
+        cout<<i<<" ";
+    }cout<<endl;
+
+    // Delete all occurence 
+    ms.erase(4);
+    for(auto i : ms){
+        cout<<i<<" ";
+    }cout<<endl;
+
+    //Delete single occurence
+    ms.erase(ms.find(1));
+    for(auto i : ms){
+        cout<<i<<" ";
+    }cout<<endl;
+
+    cout<<ms.count(1);
+
+
+}
+void explainmap(){
+    map<int, string> mpp;
+    // elements stored according to keys(ascending order)
+    mpp[1] = 'a';
+    mpp[2] = 'b';
+    mpp[3] = 'c';
+    mpp.insert({4,"d"});
+
+    // key value pair stored as --> pair 
+    // for(auto it : mpp){
+    //     cout<<it.first<<"->"<<it.second<<endl;
+    // }
+
+    auto it = mpp.find(2);
+    if(it == mpp.end()){
+        cout<<"element not found";
+    }else{
+        cout<<(*it).first<<"->"<<(*it).second<<endl;
+    }
+
+    //lowerbound & upperbound
+    //Unorderedmap 
+
+    // Multimap allows to store duplicate values
+}
+void explainsort(){
+    int arr[6] = {6,1,9,2,8,0};
+    // sort all the elements present in array 
+    sort(arr,arr+6);
+    for(int i=0;i<6;i++){
+        cout<<arr[i]<<" ";
+    }
+    
+    // All elements will be sorted except first and last
+    sort(arr+1,arr+5);
+    for(int i=0;i<6;i++){
+        cout<<arr[i]<<" ";
+    }cout<<endl;
+
+
+    vector<int> vec = {6,1,9,2,8,0};
+    sort(vec.begin()+1,vec.begin()+4);  // sort(a,b) -> till b-1 
+    for(auto it : vec){
+        cout<<it<<" ";
+    }
+
+}
+void explainaccumulate(){
+    int arr[6] = {6,1,9,2,8,0};
+    cout<<accumulate(arr+1,arr+4,0)<<endl;
+}
+void explainpermutation(){
+    // next permutation in sorted order
+    string str1 = "abcd";
+    string str2 = "dbca";
+    do{
+        cout<<str1<<" ";
+    }while(next_permutation(str1.begin(),str1.end()));
+    cout<<endl;
+
+    do{
+        cout<<str2<<endl;
+    }while(next_permutation(str2.begin(),str2.end()));
+}
+void explainMaxMin(){
+    int arr[6] = {6,1,9,2,8,0};
+    auto itr1 = max_element(arr,arr+6);
+    auto itr2 = min_element(arr,arr+6);
+    cout<<*itr1<<endl;
+    cout<<*itr2<<endl;
+
 }
 
 
 int main(){
-
-    //explainPair();
-    //explainvector();
-    //explainlist();
-    //explainStack();
-    //explainPQ();
+    explainPair();
+    explainvector();
+    explainlist();
+    explainStack();
+    explainPQ();
     explainset();
+    explainmultiset();
+    explainmap();
+    explainsort();
+    explainaccumulate();
+    explainpermutation();
+    explainMaxMin();
     return 0;
 }
