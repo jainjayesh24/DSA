@@ -1,7 +1,7 @@
 class Solution{
 public:
     int upperBound(vector<int> &nums, int x){
-         int low = 0,high = nums.size()-1;
+        int low = 0,high = nums.size()-1;
         int ans = nums.size();
         while(low<=high){
             int mid = (low+high)/2;
