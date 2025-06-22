@@ -1,0 +1,25 @@
+class Solution{
+public:
+    int func(int ind,int buy,int fee,int n,vector<int> &arr,vector<vector<int>> &dp){
+        if(ind == n) return 0;
+
+        if(dp[ind][buy]!=-1) return dp[ind][buy];
+
+        int profit = 0;
+
+        if(buy){
+            profit = max(-arr[ind]+ func(ind+1,0,fee,n,arr,dp),func(ind+1,1,fee,n,arr,dp));
+        }
+        else{
+            profit = max(arr[ind]-fee+func(ind+1,1,fee,n,arr,dp),func(ind+1,0,fee,n,arr,dp));
+        }
+
+        return dp[ind][buy] = profit;
+
+    }
+    int stockBuySell(vector<int> arr, int n, int fee){
+        vector<vector<int>> dp(n,vector<int>(2,-1));
+
+        return func(0,1,fee,n,arr,dp);
+    }
+};
